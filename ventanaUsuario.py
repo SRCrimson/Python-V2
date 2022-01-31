@@ -1,3 +1,4 @@
+from cProfile import label
 from cgitb import text
 import os
 from random import uniform
@@ -8,16 +9,117 @@ from tkinter import *
 
 window = tk.Tk()
 window.title("Calabozos en la Nacho") #Zona 0
+#window.geometry("1024x768")
 window.resizable(width=False, height=False)
-###Frames de ventana
-frame1 = tk.Frame(window, background="#566573", bd=1, relief="sunken",width=985, height=625)
-frame1.grid(sticky="nsew", padx=0, pady=0)
-frame2 = tk.Frame(frame1, background="#CCE4CA", width=500, height=600)
-frame2.grid(row=3, column=3,padx=2, pady=1)
-'''label = Label(frame2)
-imgobj = PhotoImage(file='uiMain/photos/unal3.png') # definir imagen
-label['image'] = imgobj'''
-##frame de menu procesos y consultas
+####Frames de ventana
+frame1 = tk.Frame(window, background="#566573", bd=1, relief="sunken")
+frame1.grid(sticky="nsew",padx=7, pady=3,row=0, column=0)
+##ventana de inicio juego
+framejugador= tk.Frame(frame1, background="#566573",width=600,height=250)
+framejugador.grid()
+
+
+##ventana de funcion Inventario
+frameinventario=tk.Frame(frame1,background="#566573",bd=0, relief="sunken")
+frame2= tk.Frame(frameinventario, background="#566573",width=400,height=200)
+invLabel1 = tk.Label(frame2, text="Inventario",font=("Verdana",16))
+invLabel1.grid(sticky=N,padx=20,pady=10)
+invLabel2 = tk.Label(frame2, text="Descripción\nsdaf",font=("Verdana",16))
+invLabel2.grid(padx=20,pady=10)
+frame3= tk.Frame(frameinventario, background="#CCE4CA",width=600,height=250)
+frame4=tk.Frame(frameinventario, background="#CCE4CA",width=600,height=250)
+frame2.grid(padx=20, pady=10)
+frame3.grid(padx=20, pady=10)
+frame4.grid()
+
+##ventana de funcion Combate
+frameCombate=tk.Frame(frame1,background="#566573",bd=0, relief="sunken")
+frame5= tk.Frame(frameCombate, background="#566573",width=400,height=200)
+comLabel1 = tk.Label(frame5, text="Combate",font=("Verdana",16))
+comLabel1.grid(padx=20,pady=10)
+comLabel2 = tk.Label(frame5, text="Descripción",font=("Verdana",16))
+comLabel2.grid(padx=20,pady=10)
+frame6= tk.Frame(frameCombate, background="#CCE4CA",width=400,height=200)
+frame7= tk.Frame(frameCombate, background="#CCE4CA",width=400,height=200)
+frame5.grid(padx=20, pady=10)
+frame6.grid(padx=20, pady=10)
+frame7.grid()
+
+##ventana de funcion Narrador
+frameNarrador=tk.Frame(frame1,background="#566573",bd=0, relief="sunken")
+frame8= tk.Frame(frameNarrador, background="#566573",width=400,height=200)
+narrLabel1 = tk.Label(frame8, text="Narrador",font=("Verdana",16))
+narrLabel1.grid(padx=20,pady=10)
+narrLabel2 = tk.Label(frame8, text="Descripción",font=("Verdana",16))
+narrLabel2.grid(padx=20,pady=10)
+frame9= tk.Frame(frameNarrador, background="#CCE4CA",width=400,height=200)
+frame10= tk.Frame(frameNarrador, background="#CCE4CA",width=400,height=200)
+frame8.grid(padx=20, pady=10)
+frame9.grid(padx=20, pady=10)
+frame10.grid()
+
+##ventana de funcion Tienda
+frameTienda=tk.Frame(frame1,background="#566573",bd=0, relief="sunken")
+frame11= tk.Frame(frameTienda, background="#566573",width=400,height=200)
+tiendaLabel1 = tk.Label(frame11, text="Tienda",font=("Verdana",16))
+tiendaLabel1.grid(padx=20,pady=10)
+tiendaLabel2 = tk.Label(frame11, text="Descripción",font=("Verdana",16))
+tiendaLabel2.grid(padx=20,pady=10)
+frame12= tk.Frame(frameTienda, background="#CCE4CA",width=400,height=200)
+frame13= tk.Frame(frameTienda, background="#CCE4CA",width=400,height=200)
+frame11.grid(padx=20, pady=10)
+frame12.grid(padx=20, pady=10)
+frame13.grid()
+
+##ventana de funcion Crear personaje
+frameCrear=tk.Frame(frame1,background="#566573",bd=0, relief="sunken")
+frame14= tk.Frame(frameCrear, background="#566573",width=400,height=200)
+crearLabel1 = tk.Label(frame14, text="Crear Personaje",font=("Verdana",16))
+crearLabel1.grid(padx=20,pady=10)
+crearLabel2 = tk.Label(frame14, text="Descripción\ng\ng",font=("Verdana",16))
+crearLabel2.grid(padx=20,pady=10)
+frame15= tk.Frame(frameCrear, background="#CCE4CA",width=400,height=200)
+frame16= tk.Frame(frameCrear, background="red",width=600,height=250)
+frame14.grid(padx=20, pady=10)
+frame15.grid(padx=20, pady=10)
+frame16.grid()
+#frame15
+Label(frame15, text="Nombre:").grid(pady=5, row=0, column=0)
+Entry(frame15, width=40).grid(padx=5, row=0, column=1)
+Label(frame15, text="Apellido:").grid( pady=5, row=1, column=0)
+Entry(frame15, width=40).grid(padx=5, row=1, column=1)
+#elegir clase
+Label(frame15, text="CLASE:").grid( pady=5, row=2, column=0)
+
+Button(frame15, text="GUERRERO").grid(padx=5, row=2, column=1)
+frameguerrero=Frame(frame15,width=50,height=50).grid(row=3,column=1)
+imgmago = PhotoImage(file='photos/eider_img1.gif') # definir imagen
+label1 = Label(frameguerrero)
+label1.photo=imgmago
+
+Button(frame15, text="MAGO").grid(padx=5, row=3, column=2)
+Button(frame15, text="AQUERO").grid(padx=5, row=3, column=3)
+Button(frame15, text="Aceptar", width=50).grid(padx=10, pady=10, row=4, column=0, columnspan=3)
+'''
+labelmago=Label(frame15,width=20,height=20)
+imgmago = PhotoImage(file='photos/mago1.gif') # definir imagen
+labelmago['image'] = imgmago
+labelmago.grid()
+Button(frame15, text="MAGO").grid(padx=5, row=3, column=2)
+
+labelArquero=Label(frame15,width=20,height=20)
+Button(frame15, width=40).grid(padx=5, row=0, column=1)
+imgarquero = PhotoImage(file='photos/arquero.gif') # definir imagen
+labelArquero['image'] = imgarquero
+labelArquero.gridd(pady=5, row=2, column=3)
+Button(frame15, text="AQUERO").grid(padx=5, row=3, column=3)
+Button(frame15, text="Aceptar", width=50).grid(padx=10, pady=10, row=3, column=0, columnspan=3)'''
+
+
+'''label = Label(frame15)
+imgobj = PhotoImage(file='photos/eider_img1.gif') # definir imagen
+label['image'] = imgobj
+label.grid()'''
 
 
 
@@ -31,13 +133,51 @@ def Aplicacion():
     detail=mensajeAplicacion)
 def regresarInicio():
     frame1.grid()
-def procesos():
-    frame1.grid_forget()
-
 def ayuda():
     messagebox.showinfo(title='Ayuda',
     message='Autores',
     detail='''Brayan David Caballero Fernández\nJohn Mauricio Mesa Echeverri\nEider Alejandro Peña Dagua\nSantiago Rivera Mejía''')
+
+def funInventario():
+    framejugador.grid_forget()
+    frame1.grid()
+    frameinventario.grid()
+    frameCombate.grid_forget()
+    frameNarrador.grid_forget()
+    frameTienda.grid_forget()
+    frameCrear.grid_forget()
+def funCombate():
+    framejugador.grid_forget()
+    frame1.grid()
+    frameinventario.grid_forget
+    frameCombate.grid()
+    frameNarrador.grid_forget()
+    frameTienda.grid_forget()
+    frameCrear.grid_forget()
+def funNarrador():
+    framejugador.grid_forget()
+    frame1.grid()
+    frameinventario.grid_forget()
+    frameCombate.grid_forget()
+    frameNarrador.grid()
+    frameTienda.grid_forget()
+    frameCrear.grid_forget()
+def funTienda():
+    framejugador.grid_forget()
+    frame1.grid()
+    frameinventario.grid_forget
+    frameCombate.grid_forget()
+    frameNarrador.grid_forget()
+    frameTienda.grid()
+    frameCrear.grid_forget()
+def funCrearpersonaje():
+    framejugador.grid_forget()
+    frame1.grid()
+    frameinventario.grid_forget()
+    frameCombate.grid_forget()
+    frameNarrador.grid_forget()
+    frameTienda.grid_forget()
+    frameCrear.grid()
 
 
 ###botones de menu zona 1 en rojo
@@ -51,11 +191,11 @@ menuArchivo.add_separator()
 menuArchivo.add_command(label="Salir", command=regresarInicio)
 menuProcesos= Menu(menubar)
 menubar.add_cascade(menu=menuProcesos, label='Procesos y Consultas')
-menuProcesos.add_command(label="Inventario", command=procesos)
-menuProcesos.add_command(label="Combate", command=procesos)
-menuProcesos.add_command(label="Narrador", command=procesos)
-menuProcesos.add_command(label="Tienda", command=procesos)
-menuProcesos.add_command(label="Crear Personaje", command=procesos)
+menuProcesos.add_command(label="Inventario",command=funInventario)
+menuProcesos.add_command(label="Combate", command=funCombate)
+menuProcesos.add_command(label="Narrador", command=funNarrador)
+menuProcesos.add_command(label="Tienda", command=funTienda)
+menuProcesos.add_command(label="Crear Personaje", command=funCrearpersonaje)
 
 menuAyuda=Menu(menubar)
 menubar.add_cascade(menu=menuAyuda,label="Ayuda")
