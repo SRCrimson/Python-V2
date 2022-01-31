@@ -1,8 +1,9 @@
 import tkinter
 
 
-import tkinter as tk
 
+import tkinter as tk
+from gestorAplicacion.pjs.Player import Player
 window = tk.Tk()
 window.geometry("1024x768")
 
@@ -29,6 +30,7 @@ class combate():
         if self.pj.DES >= self.mob.DES:
             return True
     
+
 
 combate = combate("pj", "mob")
 
