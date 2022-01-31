@@ -1,4 +1,5 @@
 import string
+from random import randint
 
 from gestorAplicacion.pjs.NPC import NPC
 from gestorAplicacion.pjs.Clase import Clase
@@ -7,7 +8,7 @@ from gestorAplicacion.pjs.Clase import Clase
 from gestorAplicacion.Loadout.Inventario import Inventario
 from gestorAplicacion.Loadout.Armadura import Armadura
 from gestorAplicacion.Loadout.Arma import Arma
-from gestorAplicacion.mecanicas.Narrador import Narrador
+
 
 class Player(NPC):     #serializable
 
@@ -15,17 +16,6 @@ class Player(NPC):     #serializable
 	max = 20
 	clase= Clase
 
-	#public static  gestorAplicacion.Loadout.Armadura armadura;
-	#public static gestorAplicacion.Loadout.Arma arma;
-	#public int aHP,aAC, aFUE, aDES, aINT, aCON, aCAR, aSAB;
-	#public int wallet;
-	#public gestorAplicacion.Loadout.Inventario inventario;
-	#public static  gestorAplicacion.Loadout.Armadura armadura;
-	#public static gestorAplicacion.Loadout.Arma arma;
-	##public int 
-    #aHP,aAC, aFUE, aDES, aINT, aCON, aCAR, aSAB
-	#public int wallet;
-	#public gestorAplicacion.Loadout.Inventario inventario;
 	 
 	def __init__(self,nombre="Freud Baggins",HP=20,AC=6,nivel=1,xp=0,clase= 1,edad=50,FUE=12,DES=12,CON=12,INT=12,SAB=12,CAR=12): #Jugador por defecto
 		#reemplazado clase = Clase.GUERRERO: Clase debe ser tipo int
@@ -34,8 +24,6 @@ class Player(NPC):     #serializable
 		self.AC = AC
 		self.nivel = nivel
 		self.xp = xp
-
-
 		self.FUE = FUE
 		self.DES = DES
 		self.CON = CON
@@ -45,22 +33,22 @@ class Player(NPC):     #serializable
 		self.inventario = Inventario()
 		self.wallet = 0    #agrego a la clase por defecto la billetera para la tienda, implementar en general
 		self.armadura = Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300)
-		Inventario.listaArmaduras.add(self.armadura)
+		##Inventario.listaArmaduras.add(self.armadura)
 		self.arma = Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1)
-		Inventario.listaArmasGuerrero.add(self.arma)
+		#Inventario.listaArmasGuerrero.add(self.arma)
 		self.descripcion = "Humano del Este adiestrado en el arte de la guerra."
 
 
 	def Jugador (self,nombre,edad,clase):
-		super().__init__(nombre, edad,  clase, 1)
+		super().__init__(nombre, edad,  clase, 5)
 		clase= super().getClase()
 		self.HP = 20 + clase.getConstitucion() + self.getHp()
-		self.FUE += clase.getFuerza() + Narrador.lanzarDados()
-		self.DES += clase.getDestreza() + Narrador.lanzarDados()
-		self.CON += clase.getConstitucion() + Narrador.lanzarDados()
-		self.CAR += clase.getCarisma() + Narrador.lanzarDados()
-		self.INT += clase.getInteligencia() + Narrador.lanzarDados()
-		self.SAB += clase.getSabiduria() + Narrador.lanzarDados()
+		self.FUE += clase.getFuerza() + self.lanzarDados()
+		self.DES += clase.getDestreza() + self.lanzarDados()
+		self.CON += clase.getConstitucion() + self.lanzarDados()
+		self.CAR += clase.getCarisma() + self.lanzarDados()
+		self.INT += clase.getInteligencia() + self.lanzarDados()
+		self.SAB += clase.getSabiduria() + self.lanzarDados()
 		self.arquetipo(self.HP, self.AC, self.FUE,self.DES, self.CON,self.INT, self.SAB,self.CAR)
 
 	def arquetipo(self,aHP,aAC,aFUE,aDES,aCON,aINT,aSAB,aCAR):
@@ -72,6 +60,11 @@ class Player(NPC):     #serializable
 		self.aINT = self.INT	
 		self.aSAB = self.SAB
 		self.aCAR = self.CAR
+
+	def lanzarDados(self) :
+		resultadoDados = randint (1, 20)
+		return resultadoDados
+
 
 	def atque_basico(self, enemigo):
 		danio = self.arma.dano
@@ -96,6 +89,7 @@ class Player(NPC):     #serializable
 
 	def cambiarArmadura(self):
 		pass
+
 	def cambiarArma(self):
 		pass
 
@@ -107,6 +101,5 @@ class Player(NPC):     #serializable
 
 	def getClase(self):
 		return self.clase.name
-
 
 
