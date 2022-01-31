@@ -5,9 +5,9 @@ from gestorAplicacion.pjs.NPC import NPC
 from gestorAplicacion.pjs.Clase import Clase
 ##import java.io.Serializable;
 
-from gestorAplicacion.Loadout.Inventario import Inventario
-from gestorAplicacion.Loadout.Armadura import Armadura
-from gestorAplicacion.Loadout.Arma import Arma
+#from gestorAplicacion.Loadout.Inventario import Inventario
+#from gestorAplicacion.Loadout.Armadura import Armadura
+#from gestorAplicacion.Loadout.Arma import Arma
 
 
 class Player(NPC):     #serializable
@@ -30,17 +30,17 @@ class Player(NPC):     #serializable
 		self.INT = INT
 		self.SAB = SAB
 		self.CAR = CAR
-		self.inventario = Inventario()
+		#self.inventario = Inventario()
 		self.wallet = 0    #agrego a la clase por defecto la billetera para la tienda, implementar en general
-		self.armadura = Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300)
+		#self.armadura = Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300)
 		##Inventario.listaArmaduras.add(self.armadura)
-		self.arma = Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1)
+		#self.arma = Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1)
 		#Inventario.listaArmasGuerrero.add(self.arma)
 		self.descripcion = "Humano del Este adiestrado en el arte de la guerra."
 
 
 	def Jugador (self,nombre,edad,clase):
-		super().__init__(nombre, edad,  clase, 5)
+		super().__init__(nombre, edad,  clase, 1)
 		clase= super().getClase()
 		self.HP = 20 + clase.getConstitucion() + self.getHp()
 		self.FUE += clase.getFuerza() + self.lanzarDados()
@@ -66,22 +66,25 @@ class Player(NPC):     #serializable
 		return resultadoDados
 
 
-	def atque_basico(self, enemigo):
-		danio = self.arma.dano
-		enemigo.setHp(enemigo.getHp - danio)
+	def ataque_basico(self):#, enemigo):
+		#danio = self.arma.dano
+		#enemigo.setHp(enemigo.getHp - danio)
+		print("Ataque básico")
 
-	def hechizo_1(self, enemigo):
-		danio = int(self.getInteligencia()* 0.7 + self.arma.dano)
-		enemigo.setHp (enemigo.getHp - danio)
+	def hechizo_1(self):#, enemigo):
+		#danio = int(self.getInteligencia()* 0.7 + self.arma.dano)
+		#enemigo.setHp (enemigo.getHp - danio)
+		print("Hechizo 1")
 
-	def hechizo_2 (self, enemigo) :
-		danio = int(self.getDestreza() * 0.7 + self.arma.dano)
-		enemigo.setHp (enemigo.getHp - danio)
+	def hechizo_2 (self):#, enemigo) :
+		#danio = int(self.getDestreza() * 0.7 + self.arma.dano)
+		#enemigo.setHp (enemigo.getHp - danio)
+		print("Hechizo 2")
 
-	def hechizo_3 (self, enemigo) :
-		danio = int(self.getFuerza () * 0.7 + self.arma.dano)
-		enemigo.setHp (enemigo.getHp - danio)
-
+	def hechizo_3(self):#, enemigo) :
+		#danio = int(self.getFuerza () * 0.7 + self.arma.dano)
+		#enemigo.setHp (enemigo.getHp - danio)
+		print("Hechizo 3")
 
 	def SubirNivel(self):
 		self.nivel += 1
