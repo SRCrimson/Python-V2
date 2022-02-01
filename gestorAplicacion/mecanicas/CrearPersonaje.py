@@ -1,6 +1,6 @@
 from tkinter import *
 import tkinter as tk
-import photos
+#import photos
 import os
 
 crear_personaje = Tk()

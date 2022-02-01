@@ -92,10 +92,14 @@ Entry(frame15, width=40).grid(padx=5, row=1, column=1)
 Label(frame15, text="CLASE:").grid( pady=5, row=2, column=0)
 
 Button(frame15, text="GUERRERO").grid(padx=5, row=2, column=1)
-frameguerrero=Frame(frame15,width=50,height=50).grid(row=3,column=1)
+'''frameguerrero=Frame(frame15,width=50,height=50).grid(row=3,column=1)
 imgmago = PhotoImage(file='photos/eider_img1.gif') # definir imagen
 label1 = Label(frameguerrero)
-label1.photo=imgmago
+label1.photo=imgmago'''
+label = Label(frame15)
+imgobj = PhotoImage(file='photos/eider_img1.gif') # definir imagen
+label['image'] = imgobj
+label.grid()
 
 Button(frame15, text="MAGO").grid(padx=5, row=3, column=2)
 Button(frame15, text="AQUERO").grid(padx=5, row=3, column=3)
@@ -149,7 +153,7 @@ def funInventario():
 def funCombate():
     framejugador.grid_forget()
     frame1.grid()
-    frameinventario.grid_forget
+    frameinventario.grid_forget()
     frameCombate.grid()
     frameNarrador.grid_forget()
     frameTienda.grid_forget()
