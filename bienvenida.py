@@ -4,13 +4,12 @@ from random import uniform
 import tkinter as tk
 from tkinter import CENTER, LEFT, messagebox
 
-
 window = tk.Tk()
-window.geometry("1024x768")
+window.geometry("1280x720")
 window.title("Calabozos en la Nacho")
 window.resizable(width=False, height=False)
-p1Frame = tk.Frame(window, background="#FFF0C1", bd=1, relief="sunken")
-p2Frame = tk.Frame(window, background="#CCE4CA", bd=1, relief="sunken")
+p1Frame = tk.Frame(window, background="#202020", bd=30, relief="sunken")
+p2Frame = tk.Frame(window, background="#202020", bd=30, relief="sunken")
 p1Frame.grid(row=1, column=0, sticky="nsew", padx=0, pady=0)
 p2Frame.grid(row=1, column=1, sticky="nsew", padx=0, pady=0)
 base_folder = os.path.dirname(__file__)
@@ -21,14 +20,14 @@ p2Frame.rowconfigure(0, weight=1)
 p2Frame.columnconfigure(0, weight=1)
 
 
-p3Frame = tk.Frame(p1Frame, background="#CCE4CA", width=400, height=200)
+p3Frame = tk.Frame(p1Frame, background="#808080", width=400, height=200)
 p3Frame.grid(padx=20, pady=10)
 p3Frame.grid_propagate(0)
 p3Label = tk.Label(p3Frame, text="Bienvenida")
 p3Label.pack(expand=True)
 p3Frame.pack_propagate(False)
 
-p4Frame = tk.Frame(p1Frame, background="#CCE4CA", width=400, height=500)
+p4Frame = tk.Frame(p1Frame, background="#404040", width=400, height=500)
 
 p4Frame.grid(padx=20, pady=10)
 p4Frame.grid_propagate(0)
@@ -73,7 +72,7 @@ descripcion = """Este relato contiene muchas elecciones: las hay sencillas, sens
 
 Estas elecciones las encontrarás siempre al final de cada narración.
 
-Decide entre uno u otro camino escribiendo '1' o '2', según corresponda y presionando a continuación la tecla 'Enter'.
+Decide entre uno u otro camino escribiendo '1' o '2' según corresponda y presionando a continuación la tecla 'Enter'.
 
 Puedes realizar otras acciones usando comandos especiales. Puedes ver una lista de comandos escribiendo: help"""
 
@@ -132,11 +131,11 @@ def clicked(event):
 
 pjJohn = "Nombre: John Mauricio\nApellidos: Mesa Echeverri\nEdad: 32\nPregrado: Ciencias de la computación"
 pjEider = "Hoja de vida de Eider"
-pjSantiago = "Hoja de vida de Santiago"
+pjSantiago = "Nombre: Santiago\nApellidos: Rivera Mejia\nEdad: 21\nPregrado: Ciencias de la computación"
 pjBrayan = "Hoja de vida de Brayan"
 
 
-p5Frame = tk.Frame(p2Frame, background="#FFF0C1", width=400, height=200)
+p5Frame = tk.Frame(p2Frame, background="#808080", width=400, height=200)
 p5Frame.grid(padx=20, pady=10)
 p5Frame.grid_propagate(0)
 p5Label = tk.Label(p5Frame, text=pjJohn)
