@@ -18,13 +18,17 @@ class combate():
         self.objetivoRival = 14 + self.pj.nivel + self.mob.AC
 
     def botonera(self):
+        hechizo1 = self.pj.hechizo_1(self.mob,self.pj, "consulta")
+        hechizo2 = self.pj.hechizo_2(self.mob,self.pj, "consulta")
+        hechizo3 = self.pj.hechizo_3(self.mob,self.pj, "consulta")
         self.ataque_basico= tk.Button(self.window,text="Atacar", command=lambda:[self.ataque_basico_nar(), self.pj.ataque_basico(), self.turnoMob()], state="disabled")
         self.ataque_basico.grid(column=0,row=0)
-        self.hechizo_1 = tk.Button(self.window,text="Hechizo 1", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_1(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
+        
+        self.hechizo_1 = tk.Button(self.window,text=hechizo1.nombre +"("+str(hechizo1.costo)+")", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_1(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
         self.hechizo_1.grid(column=1,row=0)
-        self.hechizo_2 = tk.Button(self.window,text="Hechizo 2", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_2(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
+        self.hechizo_2 = tk.Button(self.window,text=hechizo2.nombre +"("+str(hechizo2.costo)+")", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_2(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
         self.hechizo_2.grid(column=2,row=0)
-        self.hechizo_3 = tk.Button(self.window,text="Hechizo 3", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_3(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
+        self.hechizo_3 = tk.Button(self.window,text=hechizo3.nombre +"("+str(hechizo3.costo)+")", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_3(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
         self.hechizo_3.grid(column=3,row=0)
 
         
