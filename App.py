@@ -17,9 +17,9 @@ class App(tk.Tk):
     def __init__(self,lista):
         super().__init__()
         self.title("Calabozos en la Nacho")
-                # creating a frame and assigning it to container
-       
+
         self.__create_widgets()
+
     def __create_widgets(self):
         frameinicio= inicioPage(self,"pagina de inicio")
         frameinicio.grid()
