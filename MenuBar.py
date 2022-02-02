@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk,messagebox
-
+import gestorAplicacion.mecanicas.Narrador as narrador
 
 mensajeAplicacion='''La aplicación es un demo jugable que rememora a los clásicos juegos de rol de texto, para ello implementaremos los conceptos de la programación orientada a objetos vistos en clase. Se desarrollará la narración en un clásico ecosistema de fantasía medieval, inspirado en el juego Calabozos & Dragones.'''
 def Aplicacion():
@@ -71,6 +71,9 @@ class MenuBar(tk.Menu):
         self.frameNarr.grid_forget()
         self.frametienda.grid_forget()
         self.framecrear.grid_forget()
+        combate = narrador.combate(pj, mob, frame7, frame6, labelNar, labelPJ, labelMob) # JM
+        self.combate.botonera() # JM
+        self.countdown(0) # JM
 
     def funNarrador(self):
         self.frameinicio.grid_forget()
