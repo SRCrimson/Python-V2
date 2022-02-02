@@ -17,8 +17,8 @@ class tiendaPage(tk.Frame):
         frame3= tk.Frame(frameinventario, background="#CCE4CA",width=600,height=250)
         frame2.grid(padx=20, pady=10)
         frame3.grid(padx=20, pady=10)
-        
+        self.frame3=frame3
         ##botones
-        Button(frame3, text="Armas",width=10).grid(padx=5, row=6 ,column=0)
-        Button(frame3, text="Armadura",width=20).grid(padx=5, row=6, column=1)
-        Button(frame3, text="Pocion",width=20).grid(padx=5, row=6, column=2)
+        Button(frame3, text="Armas",width=10).grid(padx=5, row=0,column=0)
+        Button(frame3, text="Armadura",width=20).grid(padx=5, row=0, column=1)
+        Button(frame3, text="Pocion",width=20).grid(padx=5, row=0, column=2)
