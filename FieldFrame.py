@@ -33,6 +33,11 @@ class FieldFrame(ttk.Frame):
                     keyword = ttk.Entry(self, width=30)
                     keyword.focus()
                     keyword.grid(column=1, row=1+i, sticky=tk.W)
+                elif hab[i]=="*":
+                    ttk.Label(self, text=criterio[i]).grid(column=0, row=i+1, sticky=tk.W)
+                    keyword = ttk.Entry(self, width=30,show = "*")
+                    keyword.focus()
+                    keyword.grid(column=1, row=1+i, sticky=tk.W)
                 else:
                     ttk.Label(self, text=criterio[i]).grid(column=0, row=i+1, sticky=tk.W)
                     keyword = ttk.Entry(self, width=30,state=tk.DISABLED)
