@@ -12,7 +12,7 @@ class inicioPage(tk.Frame):
         invLabel1 = tk.Label(frameinicio, text="CALABOZOS EN LA NACHO",font=("Impact",16),fg="red",bg="#1C1C1C")
         invLabel1.grid(sticky=E,padx=20,pady=10,row=0, column=0, columnspan=2)
         
-        frame3= tk.Frame(frameinicio,width=600,height=250)
+        frame3= tk.Frame(frameinicio,width=400,height=250)
         frame3.grid(padx=20,pady=10,row=1, column=0,columnspan=3,rowspan=3)
 
         #frame4= tk.Frame(frameinicio,width=100,height=100)

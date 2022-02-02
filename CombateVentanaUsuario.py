@@ -10,7 +10,7 @@ from gestorAplicacion.mecanicas.Narrador import combate # JM
 import gestorAplicacion.mecanicas.Narrador as narrador # JM
 import gestorAplicacion.pjs.Player as player # JM
 import gestorAplicacion.pjs.Enemy as Enemy #JM
-
+import gestorAplicacion.mecanicas.iu # JM
 
 window = tk.Tk()
 window.title("Calabozos en la Nacho") #Zona 0

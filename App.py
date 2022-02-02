@@ -7,8 +7,10 @@ from combatePage import CombatePage
 from narradorPage import narradorPage
 from tiendaPage import tiendaPage
 from crearPersonajePage import crearPersonajePage
+
 ### CLASE APP ES LA VENTANA PRINCIPAL
 class App(tk.Tk):
+    
     def __init__(self,lista):
         super().__init__()
         self.title("Calabozos en la Nacho")
