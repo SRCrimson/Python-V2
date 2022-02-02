@@ -38,8 +38,7 @@ class Hechizo():
         self.dano = self.lanzarDados(6)        
         if consulta == "consulta":
             self.efecto = None
-        else:
-            print("WTF")
+        else:            
             self.efecto = self.cura(self.dano, pj)
         self.mensaje = "\n-Realizaste " + str(self.dano) + " de curación"
 
