@@ -16,9 +16,11 @@ def ayuda():
 
 
 class MenuBar(tk.Menu):
-    def __init__(self, container,frameinicio,frameinv,frameCom,frameNarr,frametienda,framecrear):
+    def __init__(self, container,frameinicio,frameinv,frameCom,frameNarr,frametienda,framecrear, combate, label, frame6, mob, labelMob):
+        
         super().__init__(container)
-        #definifr frames
+        #definir frames
+
         self.frameinicio=frameinicio
         self.frameinv=frameinv
         self.frameCom=frameCom
@@ -29,6 +31,13 @@ class MenuBar(tk.Menu):
         self.columnconfigure(0, weight=1)
         self.columnconfigure(0, weight=3)
 
+        # Chambonada para combate
+        self.combate = combate
+        self.label = label
+        self.frame6 = frame6
+        self.mob = mob
+        self.labelMob = labelMob
+        #self.countdown = countdown
         self.__create_widgets()
 
     def __create_widgets(self):
@@ -71,6 +80,9 @@ class MenuBar(tk.Menu):
         self.frameNarr.grid_forget()
         self.frametienda.grid_forget()
         self.framecrear.grid_forget()
+        self.combate.botonera() # JM        
+        self.frameCom.countdown(5,self.label, self.frame6, self.mob, self.labelMob)
+        
         
 
     def funNarrador(self):
