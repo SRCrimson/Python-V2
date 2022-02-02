@@ -31,8 +31,9 @@ class tiendaPage(tk.Frame):
             Button(frame3, text="Armas",width=20,command=self.ShowArmasArcher).grid(padx=5, row=0,column=0)
         else: #Player.clase  == Clase.MAGO:
             Button(frame3, text="Armas",width=20,command=self.ShowArmasMage).grid(padx=5, row=0,column=0)
-        Button(frame3, text="Armadura",width=20).grid(padx=5, row=0, column=1)
-        Button(frame3, text="Pocion",width=20).grid(padx=5, row=0, column=2)
+       
+        Button(frame3, text="Armadura",width=20,command=self.ShowArmaduras).grid(padx=5, row=0, column=1)
+        Button(frame3, text="Pocion",width=20,command=self.ShowPociones).grid(padx=5, row=0, column=2)
 
     def ShowArmasWarrior(self):
         filewin  = Toplevel(self)
@@ -67,5 +68,29 @@ class tiendaPage(tk.Frame):
         BW1.grid()
         BW2.grid() 
         BW3.grid()
+
+    def ShowArmaduras(self):
+        filewin  = Toplevel(self)
+        frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
+        BW1      = Button(frame4, text=Tienda.Armor1.nombre + ": " +Tienda.Armor1.descripcion + " $" + str(Tienda.Armor1.precio))
+        BW2      = Button(frame4, text=Tienda.Armor2.nombre + ": " +Tienda.Armor2.descripcion + " $" + str(Tienda.Armor2.precio))
+        BW3      = Button(frame4, text=Tienda.Armor3.nombre + ": " +Tienda.Armor3.descripcion + " $" + str(Tienda.Armor3.precio))
+        frame4.grid()
+        BW1.grid()
+        BW2.grid() 
+        BW3.grid()
+   
+    def ShowPociones(self):
+        filewin  = Toplevel(self)
+        frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
+        BW1      = Button(frame4, text=Tienda.P1.nombre + ": " +Tienda.P1.descripcion + " $" + str(Tienda.P1.precio))
+        BW2      = Button(frame4, text=Tienda.P2.nombre + ": " +Tienda.P2.descripcion + " $" + str(Tienda.P2.precio))
+        BW3      = Button(frame4, text=Tienda.P3.nombre + ": " +Tienda.P3.descripcion + " $" + str(Tienda.P3.precio))
+        frame4.grid()
+        BW1.grid()
+        BW2.grid() 
+        BW3.grid() 
+
+       
 
     
