@@ -27,7 +27,7 @@ class App(tk.Tk):
         frameinv=frameInventario(self,"frame inventario")
         frameCom=CombatePage(self,"frame combate")
         frameNarr=narradorPage(self,"frame Narrador")
-        frametienda=tiendaPage(self,"frame Tienda")
+        frametienda=tiendaPage(self,"frame Tienda", frameinicio.getPj())
         framecrear=crearPersonajePage(self,"frame crear personaje")
         combate = frameCom.combate        
         label = frameCom.label

@@ -22,14 +22,22 @@ class combate():
         hechizo2 = self.pj.hechizo_2(self.mob,self.pj, "consulta")
         hechizo3 = self.pj.hechizo_3(self.mob,self.pj, "consulta")
         self.ataque_basico= tk.Button(self.window,text="Atacar", command=lambda:[self.ataque_basico_nar(), self.pj.ataque_basico(), self.turnoMob()], state="disabled")
-        self.ataque_basico.grid(column=0,row=0)
+        self.ataque_basico.grid(column=0,row=0, sticky='nesw')
         
         self.hechizo_1 = tk.Button(self.window,text=hechizo1.nombre +"("+str(hechizo1.costo)+")", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_1(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
-        self.hechizo_1.grid(column=1,row=0)
+        self.hechizo_1.grid(column=1,row=0, sticky='nesw')
         self.hechizo_2 = tk.Button(self.window,text=hechizo2.nombre +"("+str(hechizo2.costo)+")", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_2(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
-        self.hechizo_2.grid(column=2,row=0)
+        self.hechizo_2.grid(column=0,row=1, sticky='nesw')
         self.hechizo_3 = tk.Button(self.window,text=hechizo3.nombre +"("+str(hechizo3.costo)+")", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_3(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
-        self.hechizo_3.grid(column=3,row=0)
+        self.hechizo_3.grid(column=1,row=1, sticky='nesw')
+        self.hechizo_4 = tk.Button(self.window,text="Hoja de personaje", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_3(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
+        self.hechizo_4.grid(column=3,row=0, sticky='nesw')
+        self.hechizo_5 = tk.Button(self.window,text="Escapar", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_3(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
+        self.hechizo_5.grid(column=3,row=1, sticky='nesw')
+
+        self.window.grid_columnconfigure(0, weight=1, uniform="fred")
+        self.window.grid_columnconfigure(1, weight=1, uniform="fred")
+        self.window.grid_columnconfigure(2, weight=1, uniform="fred")
 
         
     def ataque_basico_nar(self):
