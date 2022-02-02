@@ -1,3 +1,6 @@
-InvArmas     = []
-InvArmaduras = []
-InvPociones  = []
+
+
+class Inventario():
+    InvArmas     = []
+    InvArmaduras = []
+    InvPociones  = []

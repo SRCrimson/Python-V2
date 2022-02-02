@@ -35,7 +35,7 @@ class Player(NPC):     #serializable
 		self.CAR = CAR
 		self.dano = dano
 		#self.inventario = Inventario()
-		self.wallet = 0    #agrego a la clase por defecto la billetera para la tienda, implementar en general
+		self.wallet = 1000    #agrego a la clase por defecto la billetera para la tienda, implementar en general
 		#self.armadura = Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300)
 		##Inventario.listaArmaduras.add(self.armadura)
 		#self.arma = Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1)

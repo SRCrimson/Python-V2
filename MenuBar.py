@@ -71,9 +71,7 @@ class MenuBar(tk.Menu):
         self.frameNarr.grid_forget()
         self.frametienda.grid_forget()
         self.framecrear.grid_forget()
-        combate = narrador.combate(pj, mob, frame7, frame6, labelNar, labelPJ, labelMob) # JM
-        self.combate.botonera() # JM
-        self.countdown(0) # JM
+        
 
     def funNarrador(self):
         self.frameinicio.grid_forget()

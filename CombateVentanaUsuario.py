@@ -11,6 +11,13 @@ import gestorAplicacion.mecanicas.Narrador as narrador # JM
 import gestorAplicacion.pjs.Player as player # JM
 import gestorAplicacion.pjs.Enemy as Enemy #JM
 import gestorAplicacion.mecanicas.iu # JM
+import gestorAplicacion.Loadout.Tienda as tienda
+import gestorAplicacion.Loadout.Arma
+import gestorAplicacion.Loadout.Armadura
+import gestorAplicacion.Loadout.Pocion
+import gestorAplicacion.Loadout.Inventario
+
+
 
 window = tk.Tk()
 window.title("Calabozos en la Nacho") #Zona 0
@@ -79,6 +86,8 @@ def countdown(count): # JM
         combate.setTurno() # JM
 
 pj = player.Player() # JM
+tienda = tienda.Tienda(pj.wallet)
+tienda.comprarWarrior("1")
 mob = Enemy.Enemy() #JM
 mob.goblin() # JM
 
@@ -206,7 +215,7 @@ def funCombate():
     frameNarrador.grid_forget()
     frameTienda.grid_forget()
     frameCrear.grid_forget()
-    combate.botonera()
+    combate.botonera() # JM
     countdown(0) # JM
     
 def funNarrador():

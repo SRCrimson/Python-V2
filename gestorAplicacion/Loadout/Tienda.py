@@ -1,11 +1,15 @@
 from pip      import main
 
-from Arma     import Arma
-from Armadura import Armadura
-from Pocion   import Pocion
-import Inventario
+
+from . Arma import Arma
+from . Armadura import Armadura
+from . Pocion   import Pocion
+
+from . Inventario import Inventario
 
 class Tienda:
+    def __init__(self, wallet):
+        self.wallet = wallet
     W1 = Arma("Bisturi",   "De poco filo",       5, 25)
     W2 = Arma("Excalibur", "Espada legendaria", 10, 50)
     W3 = Arma("Ragnarok",  "World ender",       15, 100)
@@ -27,55 +31,56 @@ class Tienda:
     P3 = Pocion("Pocion Large",  "Otorga la mitad de la vida al jugador", 50, 30)
 
 
-def comprarWarrior(nombre,wallet):
-    if   (nombre == '1') and (wallet >= Tienda.W1.precio): 
-        Inventario.InvArmas.append(Tienda.W1)
-    elif (nombre == '2') and (wallet >= Tienda.W2.precio): 
-        Inventario.InvArmas.append(Tienda.W2)
-    elif (nombre == '3') and (wallet >= Tienda.W3.precio): 
-        Inventario.InvArmas.append(Tienda.W3)
-    else:
-        print('not enough cash for swords')
+    def comprarWarrior(self, nombre):
+        if   (nombre == '1') and (self.wallet >= Tienda.W1.precio): 
+            Inventario.InvArmas.append(Tienda.W1)
+            print(Inventario.InvArmas[0].nombre)
+        elif (nombre == '2') and (self.wallet >= Tienda.W2.precio): 
+            Inventario.InvArmas.append(Tienda.W2)
+        elif (nombre == '3') and (self.wallet >= Tienda.W3.precio): 
+            Inventario.InvArmas.append(Tienda.W3)
+        else:
+            print('not enough cash for swords')
 
-def comprarArcher(nombre,wallet):
-    if   (nombre == '1') and (wallet >= Tienda.A1.precio): #precio del arma
-        Inventario.InvArmas.append(Tienda.A1)
-    elif (nombre == '2') and (wallet >= Tienda.A2.precio): #precio del arma
-        Inventario.InvArmas.append(Tienda.A2)
-    elif (nombre == '3') and (wallet >= Tienda.A3.precio): #precio del arma
-        Inventario.InvArmas.append(Tienda.A3)
-    else:
-        print('not enough cash for bows')
+    def comprarArcher(self, nombre):
+        if   (nombre == '1') and (self.wallet >= Tienda.A1.precio): #precio del arma
+            Inventario.InvArmas.append(Tienda.A1)
+        elif (nombre == '2') and (self.wallet >= Tienda.A2.precio): #precio del arma
+            Inventario.InvArmas.append(Tienda.A2)
+        elif (nombre == '3') and (self.wallet >= Tienda.A3.precio): #precio del arma
+            Inventario.InvArmas.append(Tienda.A3)
+        else:
+            print('not enough cash for bows')
 
-def comprarMage(nombre,wallet):
-    if   (nombre == '1') and (wallet >= Tienda.M1.precio): #precio del arma
-        Inventario.InvArmas.append(Tienda.M1)
-    elif (nombre == '2') and (wallet >= Tienda.M2.precio): #precio del arma
-        Inventario.InvArmas.append(Tienda.M2)
-    elif (nombre == '3') and (wallet >= Tienda.M3.precio): #precio del arma
-        Inventario.InvArmas.append(Tienda.M3)
-    else:
-        print('not enough cash for staves')
+    def comprarMage(self, nombre):
+        if   (nombre == '1') and (self.wallet >= Tienda.M1.precio): #precio del arma
+            Inventario.InvArmas.append(Tienda.M1)
+        elif (nombre == '2') and (self.wallet >= Tienda.M2.precio): #precio del arma
+            Inventario.InvArmas.append(Tienda.M2)
+        elif (nombre == '3') and (self.wallet >= Tienda.M3.precio): #precio del arma
+            Inventario.InvArmas.append(Tienda.M3)
+        else:
+            print('not enough cash for staves')
 
-def comprarArmor(nombre,wallet):
-    if   (nombre == '1') and (wallet >= Tienda.Armor1.precio): #precio del arma
-        Inventario.InvArmaduras.append(Tienda.Armor1)
-    elif (nombre == '2') and (wallet >= Tienda.Armor2.precio): #precio del arma
-        Inventario.InvArmaduras.append(Tienda.Armor2)
-    elif (nombre == '3') and (wallet >= Tienda.Armor3.precio): #precio del arma
-        Inventario.InvArmaduras.append(Tienda.Armor3)
-    else:
-        print('not enough cash dude for armors')
+    def comprarArmor(self, nombre):
+        if   (nombre == '1') and (self.wallet >= Tienda.Armor1.precio): #precio del arma
+            Inventario.InvArmaduras.append(Tienda.Armor1)
+        elif (nombre == '2') and (self.wallet >= Tienda.Armor2.precio): #precio del arma
+            Inventario.InvArmaduras.append(Tienda.Armor2)
+        elif (nombre == '3') and (self.wallet >= Tienda.Armor3.precio): #precio del arma
+            Inventario.InvArmaduras.append(Tienda.Armor3)
+        else:
+            print('not enough cash dude for armors')
 
-def comprarPotion(nombre,wallet):
-    if   (nombre == '1') and (wallet >= Tienda.P1.precio): #precio del arma
-        Inventario.InvPociones.append(Tienda.P1)
-    elif (nombre == '2') and (wallet >= Tienda.P2.precio): #precio del arma
-        Inventario.InvPociones.append(Tienda.P2)
-    elif (nombre == '3') and (wallet >= Tienda.P3.precio): #precio del arma
-        Inventario.InvPociones.append(Tienda.P3)
-    else:
-        print('not enough cash for potions')
+    def comprarPotion(self, nombre):
+        if   (nombre == '1') and (self.wallet >= Tienda.P1.precio): #precio del arma
+            Inventario.InvPociones.append(Tienda.P1)
+        elif (nombre == '2') and (self.wallet >= Tienda.P2.precio): #precio del arma
+            Inventario.InvPociones.append(Tienda.P2)
+        elif (nombre == '3') and (self.wallet >= Tienda.P3.precio): #precio del arma
+            Inventario.InvPociones.append(Tienda.P3)
+        else:
+            print('not enough cash for potions')
 
 # if __name__ == "__main__":
 #     nombre = input()
