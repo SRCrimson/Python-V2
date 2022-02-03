@@ -84,7 +84,9 @@ class CombatePage(tk.Frame):
         text = self.mob.nombre + " HP: " + str(self.mob.HP)
         self.labelMob = tk.Label(self.frame6, text=text)
         self.labelMob.pack(side=TOP)
-        self.combate = narrador.combate(pj, self.mob, frame7, self.frame6, labelNar, labelPJ, self.labelMob) # JM
+        option_a = Button(self.frame6, text="OPCIÓN A", width=70)        
+        option_b = Button(self.frame6, text="OPCIÓN B", width=70)
+        self.combate = narrador.combate(pj, self.mob, frame7, self.frame6, labelNar, labelPJ, self.labelMob, option_a, option_b) # JM
 
     def countdown(self, count, label, frame6, mob, labelMob): # JM
         self.combate.setTurno() # JM

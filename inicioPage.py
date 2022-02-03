@@ -10,6 +10,8 @@ import gestorAplicacion.pjs.Enemy as Enemy #JM
 import gestorAplicacion.mecanicas.iu as narrativa # JM
 class inicioPage(tk.Frame):
     pejota = None
+    option_a = None
+    option_b = None
     def __init__(self, container,labeltext):
         super().__init__(container)
 
@@ -31,10 +33,15 @@ class inicioPage(tk.Frame):
 
             iu.getEscena(seleccion)
             labelNar.insert(END, "\n\n-------------------------------\n\n"+iu.narrativa)
-            option_a['text'] = iu.opcion_1_nar
-            option_a['command'] = lambda:setEscena(iu.opcion_1)            
-            option_b['text'] = iu.opcion_2_nar 
-            option_b['command'] = lambda:setEscena(iu.opcion_2)
+            self.option_a['text'] = iu.opcion_1_nar
+            self.option_a['command'] = lambda:setEscena(iu.opcion_1)            
+            self.option_b['text'] = iu.opcion_2_nar 
+            self.option_b['command'] = lambda:setEscena(iu.opcion_2)
+            if iu.hayCombate:
+                print("COMBATE")
+                self.option_a["state"] = "disabled"
+                self.option_b["state"] = "disabled"
+                combate.setTurno()
         
         
 
@@ -90,9 +97,9 @@ class inicioPage(tk.Frame):
         text = mob.nombre + " HP: " + str(mob.HP)
         labelMob = tk.Label(frame6, text=text)
         labelMob.pack(side=TOP)
-        combate = narrador.combate(pj, mob, frame7, frame6, slabelNar, labelPJ, labelMob) # JM
-        combate.botonera()
-        combate.setTurno()
+        print("option: " +str(self.option_a))
+        
+        #combate.setTurno()
         
         ##
 
@@ -109,13 +116,14 @@ class inicioPage(tk.Frame):
         #frame4= tk.Frame(frameinicio,width=100,height=100)
         #frame3.grid(padx=20, pady=10,row=1, column=0, columnspan=6,rowspan=7,sticky="nsew")
         #Label(frameinicio, text="Opcion",width=10,font=("Monaco",14),fg="white",bg="#1C1C1C").grid(padx=5, row=6 ,column=0)
-        option_a = Button(frameinicio, text="OPCIÓN A", width=70)
-        option_a.grid(row=5, column=0,columnspan=2)
-        option_b = Button(frameinicio, text="OPCIÓN B", width=70)
-        option_b.grid(row=6, column=0,columnspan=2)
+        self.option_a = Button(frameinicio, text="OPCIÓN A", width=70)
+        self.option_a.grid(row=5, column=0,columnspan=2)
+        self.option_b = Button(frameinicio, text="OPCIÓN B", width=70)
+        self.option_b.grid(row=6, column=0,columnspan=2)
         #Button(frameinicio, text="1",width=20).grid(row=6, column=1)
         #Button(frameinicio, text="2",width=20).grid(row=6, column=3)
-
+        combate = narrador.combate(pj, mob, frame7, frame6, slabelNar, labelPJ, labelMob, self.option_a, self.option_b) # JM
+        combate.botonera()
         #Button(frameinicio, text="Atacar",width=20).grid(row=7 ,column=1)
         #Button(frameinicio, text="Pocion",width=20).grid(row=7, column=2)
         #Button(frameinicio, text="Escapar",width=20).grid(row=7, column=2)

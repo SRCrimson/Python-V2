@@ -137,7 +137,7 @@ class bienvenida(tk.Tk):
                 p5Label.config(text = pjJohn)
 
         pjJohn = "Nombre: John Mauricio\nApellidos: Mesa Echeverri\nEdad: 32\nPregrado: Ciencias de la computación"
-        pjEider = "Hoja de vida de Eider"
+        pjEider = "Nombre: Eider Alejandro\nApellidos: Peña Dagua\nEdad: 23\nPregrado: Ing Sistemas e Informatica"
         pjSantiago = "Nombre: Santiago\nApellidos: Rivera Mejia\nEdad: 21\nPregrado: Ciencias de la computación"
         pjBrayan = "Hoja de vida de Brayan"
 
