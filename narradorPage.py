@@ -17,7 +17,6 @@ class narradorPage(tk.Frame):
                                             font=("Monaco",12),fg="white",bg="#1C1C1C",relief= "solid",justify= LEFT)
         invLabel2.grid(padx=20,pady=10,)
         frame3= tk.Frame(frameinventario, background="#CCE4CA",width=600,height=250)
-        frame4=tk.Frame(frameinventario, background="#CCE4CA",width=600,height=250)
         frame2.grid(padx=20, pady=10)
         frame3.grid(padx=20, pady=10)
-        frame4.grid()
+        
