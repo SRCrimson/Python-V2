@@ -10,6 +10,7 @@ class usuarioIngresarPage(tk.Frame):
         tituloValores="Valor"
         valores=[None,None]
         habilitado=[None,"*"]
+        conn = sqlite3.connect('usuariosBD.sqlite')
         frameinventario=tk.Frame(self,background="#1C1C1C",bd=0, relief="sunken")
         frameinventario.grid()
         frame2= tk.Frame(frameinventario, background="#1C1C1C",width=400,height=200)

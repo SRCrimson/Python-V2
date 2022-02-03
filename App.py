@@ -43,3 +43,4 @@ class App(tk.Tk):
         # create the menu
         self.menubar = MenuBar(self,frameinicio,frameinv,frameCom,frameNarr,frametienda,framecrear,frameReg,frameIngresar,framePersonaje, combate, label, frame6, mob, labelMob)
         self.config(menu=self.menubar)
+
