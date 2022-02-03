@@ -1,5 +1,6 @@
 import string
 from random import randint
+import this
 
 from gestorAplicacion.pjs.NPC import NPC
 from gestorAplicacion.pjs.Clase import Clase
@@ -35,7 +36,7 @@ class Player(NPC):     #serializable
 		self.CAR = CAR
 		self.dano = dano
 		#self.inventario = Inventario()
-		self.wallet = 1000    #agrego a la clase por defecto la billetera para la tienda, implementar en general
+		self.wallet = 60    #agrego a la clase por defecto la billetera para la tienda, implementar en general
 		#self.armadura = Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300)
 		##Inventario.listaArmaduras.add(self.armadura)
 		#self.arma = Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1)
@@ -87,7 +88,6 @@ class Player(NPC):     #serializable
 				
 		return hechizo
 		
-
 	def hechizo_2 (self, mob, pj, consulta):#, enemigo) :
 		#danio = int(self.getDestreza() * 0.7 + self.arma.dano)
 		#enemigo.setHp (enemigo.getHp - danio)
@@ -123,4 +123,6 @@ class Player(NPC):     #serializable
 	def getClase(self):
 		return self.clase.name
 
+	def getWallet(self):
+		return self.wallet
 
