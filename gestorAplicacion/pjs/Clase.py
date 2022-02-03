@@ -13,8 +13,6 @@ class Clase:
         else:
             self.MAGO()
 
-
-
     def GUERRERO(self, FUE=8, DES=1,INT=1,CON=5,CAR=1,SAB=1):
         self.FUE=FUE
         self.DES=DES
