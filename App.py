@@ -8,7 +8,7 @@ from combatePage import CombatePage
 from narradorPage import narradorPage
 from tiendaPage import tiendaPage
 from crearPersonajePage import crearPersonajePage
-from UsuarioPage import usuarioPage
+from UsuarioRegistrarsePage import usuarioRegistrarsePage
 
 
 
@@ -30,7 +30,7 @@ class App(tk.Tk):
         frameNarr=narradorPage(self,"frame Narrador")
         frametienda=tiendaPage(self,"frame Tienda", frameinicio.getPj())
         framecrear=crearPersonajePage(self,"frame crear personaje")
-        frameUsuario=usuarioPage(self,"frame usuario")
+        frameUsuario=usuarioRegistrarsePage(self,"frame usuario")
         combate = frameCom.combate        
         label = frameCom.label
         frame6 = frameCom.frame6

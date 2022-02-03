@@ -2,7 +2,7 @@ import sqlite3
 import tkinter as tk
 from tkinter import *
 from FieldFrame import FieldFrame
-class usuarioPage(tk.Frame):
+class usuarioRegistrarsePage(tk.Frame):
     def __init__(self, container,labeltext):
         super().__init__(container)
         tituloCriterios="Criterios"
