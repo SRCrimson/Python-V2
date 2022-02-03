@@ -193,6 +193,7 @@ class bienvenida(tk.Tk):
         self.config(menu = menuBar)
         
 
+
         def pageusuario(self):
             self.destroy()
             if __name__ == "__main__":
