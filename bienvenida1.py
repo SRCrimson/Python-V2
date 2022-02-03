@@ -32,7 +32,7 @@ class bienvenida(tk.Tk):
         p3Frame = tk.Frame(p1Frame, background="#808080", width=400, height=200)
         p3Frame.grid(padx=20, pady=10)
         p3Frame.grid_propagate(0)
-        p3Label = tk.Label(p3Frame, text="Bienvenida")
+        p3Label = tk.Label(p3Frame, text="Bad & Boring Games presents:\nCalabozos en la Nacho")
         p3Label.pack(expand=True)
         p3Frame.pack_propagate(False)
 
@@ -172,14 +172,7 @@ class bienvenida(tk.Tk):
         self.grid_columnconfigure(0, weight=1, uniform="fred")
         self.grid_columnconfigure(1, weight=1, uniform="fred")
 
-        varGuiaJuego = """Acá va la guía para aprender a jugar
-
-        Acá va la guía para aprender a jugar
-
-        Acá va la guía para aprender a jugar
-
-        Acá va la guía para aprender a jugar
-        """
+        varGuiaJuego = """Para jugar a Calabozos en la Nacho, sólo deberás leer la narrativa que aparece en la página principal, esta pondrá en contexto de una historia de la cual haces parte, al final de cada escena podrás elegir qué camino tomar usando los botones que se presentan con las opciones posibles, algunas veces tendrás que combatir, para esto dispones de distintos tipos de habilidades y ataques básicos que podrás usar oprimiendo sobre sus respectivos botones. Recuerda que los hechizos tienen un costo por uso. Úsalos sabiamente.\n\nPodrás comprar armas y armaduras en la Tienda que aparece en el menú superior en la opción Procesos y consultas, equiparlas en el Inventario y tener combates independientes en la opción \"Combate\""""
 
         def guiaJuego():
             p4Label.config(text=varGuiaJuego)
