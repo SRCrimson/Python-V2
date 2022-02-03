@@ -1,4 +1,4 @@
-
+from gestorAplicacion.pjs.Player import Player
 import tkinter as tk
 from tkinter import *
 from App import App
