@@ -1,16 +1,14 @@
 from distutils import command
-import os
 import tkinter as tk
 from tkinter import *
-import os
-from gestorAplicacion.pjs.Clase import Clase
 from gestorAplicacion.pjs.Player import Player
-import inicioPage
 from gestorAplicacion.Loadout.Tienda import Tienda
+Jugador = Player()  
 
 class tiendaPage(tk.Frame):
-    def __init__(self, container,labeltext, pj):
-        super().__init__(container)        
+
+    def __init__(self, container,labeltext, pj):   
+        super().__init__(container)   
         frameinventario=tk.Frame(self,background="#1C1C1C",bd=0, relief="sunken")
         frameinventario.grid()
         frame2= tk.Frame(frameinventario, background="#1C1C1C",width=400,height=200)
@@ -38,20 +36,17 @@ class tiendaPage(tk.Frame):
     def ShowArmasWarrior(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BW1      = Button(frame4, text=Tienda.W1.nombre + ": " +Tienda.W1.descripcion + " $" + str(Tienda.W1.precio), command=Tienda.comprarWarrior(self,'1'))
-        BW2      = Button(frame4, text=Tienda.W2.nombre + ": " +Tienda.W2.descripcion + " $" + str(Tienda.W2.precio))
-        BW3      = Button(frame4, text=Tienda.W3.nombre + ": " +Tienda.W3.descripcion + " $" + str(Tienda.W3.precio))
+        Button(frame4, text=Tienda.W1.nombre + ": " +Tienda.W1.descripcion + " $" + str(Tienda.W1.precio), command = lambda: Tienda.comprarWarrior('1', Jugador.getWallet())).grid()
+        Button(frame4, text=Tienda.W2.nombre + ": " +Tienda.W2.descripcion + " $" + str(Tienda.W2.precio), command = lambda: Tienda.comprarWarrior('2', Jugador.getWallet())).grid()   
+        Button(frame4, text=Tienda.W3.nombre + ": " +Tienda.W3.descripcion + " $" + str(Tienda.W3.precio), command = lambda: Tienda.comprarWarrior('3', Jugador.getWallet())).grid()
         frame4.grid()
-        BW1.grid()
-        BW2.grid() 
-        BW3.grid()
        
     def ShowArmasArcher(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
         BA1      = Button(frame4, text=Tienda.A1.nombre + ": " +Tienda.A1.descripcion + " $" + str(Tienda.A1.precio))
         BA2      = Button(frame4, text=Tienda.A2.nombre + ": " +Tienda.A2.descripcion + " $" + str(Tienda.A2.precio))
-        BA3      = Button(frame4, text=Tienda.A3.nombre + ": " +Tienda.A3.descripcion + " $" + str(Tienda.As3.precio))
+        BA3      = Button(frame4, text=Tienda.A3.nombre + ": " +Tienda.A3.descripcion + " $" + str(Tienda.A3.precio))
         frame4.grid()
         BA1.grid()
         BA2.grid() 
