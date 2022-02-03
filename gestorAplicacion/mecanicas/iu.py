@@ -6,6 +6,7 @@ class Iu():
     opcion_1 = None
     opcion_1_nar = None
     opcion_2_nar = None
+    hayCombate = None
 
     class Escena:
         idEscena = int
@@ -106,6 +107,7 @@ alertando así los guardas, iniciándose un combate feroz bajo la mortecina luz 
         self.opcion_2 = self.allEscenas[seleccion].opciones[3]
         self.opcion_1_nar = self.allEscenas[seleccion].opciones[0]
         self.opcion_2_nar = self.allEscenas[seleccion].opciones[2]
+        self.hayCombate = self.allEscenas[seleccion].hayCombate
         #return escena(self.allEscenas[seleccion].narrativa, self.allEscenas[seleccion].opciones[1], )
 
 
