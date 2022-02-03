@@ -34,8 +34,9 @@ class tiendaPage(tk.Frame):
 
     def ShowArmasWarrior(self):
         filewin  = Toplevel(self)
-        filewin.geometry("400x250")       
-        frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
+        # filewin.geometry("400x250") 
+        # filewin.resizable(width=False, height=False)
+        frame4   = tk.Frame(filewin, background="#1C1C1C",width=400,height=250)
         Button(frame4, text=Tienda.W1.nombre + ": " +Tienda.W1.descripcion + " $" + str(Tienda.W1.precio), command = lambda: Tienda.comprarWarrior('1', Jugador.getWallet())).grid()
         Button(frame4, text=Tienda.W2.nombre + ": " +Tienda.W2.descripcion + " $" + str(Tienda.W2.precio), command = lambda: Tienda.comprarWarrior('2', Jugador.getWallet())).grid()   
         Button(frame4, text=Tienda.W3.nombre + ": " +Tienda.W3.descripcion + " $" + str(Tienda.W3.precio), command = lambda: Tienda.comprarWarrior('3', Jugador.getWallet())).grid()
@@ -43,7 +44,7 @@ class tiendaPage(tk.Frame):
        
     def ShowArmasArcher(self):
         filewin  = Toplevel(self)
-        filewin.geometry("400x250") 
+        # filewin.geometry("400x250") 
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
         Button(frame4, text=Tienda.A1.nombre + ": " +Tienda.A1.descripcion + " $" + str(Tienda.A1.precio), command = lambda: Tienda.comprarArcher('1', Jugador.getWallet())).grid()
         Button(frame4, text=Tienda.A2.nombre + ": " +Tienda.A2.descripcion + " $" + str(Tienda.A2.precio), command = lambda: Tienda.comprarArcher('2', Jugador.getWallet())).grid()
@@ -52,7 +53,7 @@ class tiendaPage(tk.Frame):
     
     def ShowArmasMage(self):
         filewin  = Toplevel(self)
-        filewin.geometry("400x250") 
+        # filewin.geometry("400x250") 
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
         Button(frame4, text=Tienda.M1.nombre + ": " +Tienda.M1.descripcion + " $" + str(Tienda.M1.precio), command = lambda: Tienda.comprarMage('1', Jugador.getWallet())).grid()
         Button(frame4, text=Tienda.M2.nombre + ": " +Tienda.M2.descripcion + " $" + str(Tienda.M2.precio), command = lambda: Tienda.comprarMage('2', Jugador.getWallet())).grid()
@@ -61,7 +62,7 @@ class tiendaPage(tk.Frame):
      
     def ShowArmaduras(self):
         filewin  = Toplevel(self)
-        filewin.geometry("400x250") 
+        # filewin.geometry("400x250") 
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
         Button(frame4, text=Tienda.Armor1.nombre + ": " +Tienda.Armor1.descripcion + " $" + str(Tienda.Armor1.precio), command = lambda: Tienda.comprarArmor('1', Jugador.getWallet())).grid()
         Button(frame4, text=Tienda.Armor2.nombre + ": " +Tienda.Armor2.descripcion + " $" + str(Tienda.Armor2.precio), command = lambda: Tienda.comprarArmor('2', Jugador.getWallet())).grid()
@@ -70,7 +71,7 @@ class tiendaPage(tk.Frame):
    
     def ShowPociones(self):
         filewin  = Toplevel(self)
-        filewin.geometry("400x250") 
+        # filewin.geometry("400x250") 
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
         Button(frame4, text=Tienda.P1.nombre + ": " +Tienda.P1.descripcion + " $" + str(Tienda.P1.precio), command = lambda: Tienda.comprarPotion('1', Jugador.getWallet())).grid()
         Button(frame4, text=Tienda.P2.nombre + ": " +Tienda.P2.descripcion + " $" + str(Tienda.P2.precio), command = lambda: Tienda.comprarPotion('2', Jugador.getWallet())).grid()
