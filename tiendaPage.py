@@ -1,3 +1,4 @@
+from distutils import command
 import os
 import tkinter as tk
 from tkinter import *
@@ -24,11 +25,11 @@ class tiendaPage(tk.Frame):
         
         
         ##botones
-        if Player.clase == 1:
+        if  Player.clase.GUERRERO.__name__  == "GUERRERO":
             Button(frame3, text="Armas",width=20,command=self.ShowArmasWarrior).grid(padx=5, row=0,column=0)
-        elif pj  == Clase.ARQUERO:
+        elif Player.clase.ARQUERO.__name__  == "ARQUERO":
             Button(frame3, text="Armas",width=20,command=self.ShowArmasArcher).grid(padx=5, row=0,column=0)
-        else: #Player.clase  == Clase.MAGO:
+        elif Player.clase.MAGO.__name__     == "MAGO":
             Button(frame3, text="Armas",width=20,command=self.ShowArmasMage).grid(padx=5, row=0,column=0)
        
         Button(frame3, text="Armadura",width=20,command=self.ShowArmaduras).grid(padx=5, row=0, column=1)
@@ -37,7 +38,7 @@ class tiendaPage(tk.Frame):
     def ShowArmasWarrior(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BW1      = Button(frame4, text=Tienda.W1.nombre + ": " +Tienda.W1.descripcion + " $" + str(Tienda.W1.precio))
+        BW1      = Button(frame4, text=Tienda.W1.nombre + ": " +Tienda.W1.descripcion + " $" + str(Tienda.W1.precio), command=Tienda.comprarWarrior(self,'1'))
         BW2      = Button(frame4, text=Tienda.W2.nombre + ": " +Tienda.W2.descripcion + " $" + str(Tienda.W2.precio))
         BW3      = Button(frame4, text=Tienda.W3.nombre + ": " +Tienda.W3.descripcion + " $" + str(Tienda.W3.precio))
         frame4.grid()
@@ -48,47 +49,46 @@ class tiendaPage(tk.Frame):
     def ShowArmasArcher(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BW1      = Button(frame4, text=Tienda.A1.nombre + ": " +Tienda.A1.descripcion + " $" + str(Tienda.A1.precio))
-        BW2      = Button(frame4, text=Tienda.A2.nombre + ": " +Tienda.A2.descripcion + " $" + str(Tienda.A2.precio))
-        BW3      = Button(frame4, text=Tienda.A3.nombre + ": " +Tienda.A3.descripcion + " $" + str(Tienda.As3.precio))
+        BA1      = Button(frame4, text=Tienda.A1.nombre + ": " +Tienda.A1.descripcion + " $" + str(Tienda.A1.precio))
+        BA2      = Button(frame4, text=Tienda.A2.nombre + ": " +Tienda.A2.descripcion + " $" + str(Tienda.A2.precio))
+        BA3      = Button(frame4, text=Tienda.A3.nombre + ": " +Tienda.A3.descripcion + " $" + str(Tienda.As3.precio))
         frame4.grid()
-        BW1.grid()
-        BW2.grid() 
-        BW3.grid()
+        BA1.grid()
+        BA2.grid() 
+        BA3.grid()
        
     def ShowArmasMage(self):
-        #print(pj.clase)
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BW1      = Button(frame4, text=Tienda.M1.nombre + ": " +Tienda.M1.descripcion + " $" + str(Tienda.M1.precio))
-        BW2      = Button(frame4, text=Tienda.M2.nombre + ": " +Tienda.M2.descripcion + " $" + str(Tienda.M2.precio))
-        BW3      = Button(frame4, text=Tienda.M3.nombre + ": " +Tienda.M3.descripcion + " $" + str(Tienda.M3.precio))
+        BM1      = Button(frame4, text=Tienda.M1.nombre + ": " +Tienda.M1.descripcion + " $" + str(Tienda.M1.precio))
+        BM2      = Button(frame4, text=Tienda.M2.nombre + ": " +Tienda.M2.descripcion + " $" + str(Tienda.M2.precio))
+        BM3      = Button(frame4, text=Tienda.M3.nombre + ": " +Tienda.M3.descripcion + " $" + str(Tienda.M3.precio))
         frame4.grid()
-        BW1.grid()
-        BW2.grid() 
-        BW3.grid()
+        BM1.grid()
+        BM2.grid() 
+        BM3.grid()
 
     def ShowArmaduras(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BW1      = Button(frame4, text=Tienda.Armor1.nombre + ": " +Tienda.Armor1.descripcion + " $" + str(Tienda.Armor1.precio))
-        BW2      = Button(frame4, text=Tienda.Armor2.nombre + ": " +Tienda.Armor2.descripcion + " $" + str(Tienda.Armor2.precio))
-        BW3      = Button(frame4, text=Tienda.Armor3.nombre + ": " +Tienda.Armor3.descripcion + " $" + str(Tienda.Armor3.precio))
+        BAR1      = Button(frame4, text=Tienda.Armor1.nombre + ": " +Tienda.Armor1.descripcion + " $" + str(Tienda.Armor1.precio))
+        BAR2      = Button(frame4, text=Tienda.Armor2.nombre + ": " +Tienda.Armor2.descripcion + " $" + str(Tienda.Armor2.precio))
+        BAR3      = Button(frame4, text=Tienda.Armor3.nombre + ": " +Tienda.Armor3.descripcion + " $" + str(Tienda.Armor3.precio))
         frame4.grid()
-        BW1.grid()
-        BW2.grid() 
-        BW3.grid()
+        BAR1.grid()
+        BAR2.grid() 
+        BAR3.grid()
    
     def ShowPociones(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BW1      = Button(frame4, text=Tienda.P1.nombre + ": " +Tienda.P1.descripcion + " $" + str(Tienda.P1.precio))
-        BW2      = Button(frame4, text=Tienda.P2.nombre + ": " +Tienda.P2.descripcion + " $" + str(Tienda.P2.precio))
-        BW3      = Button(frame4, text=Tienda.P3.nombre + ": " +Tienda.P3.descripcion + " $" + str(Tienda.P3.precio))
+        BP1      = Button(frame4, text=Tienda.P1.nombre + ": " +Tienda.P1.descripcion + " $" + str(Tienda.P1.precio))
+        BP2      = Button(frame4, text=Tienda.P2.nombre + ": " +Tienda.P2.descripcion + " $" + str(Tienda.P2.precio))
+        BP3      = Button(frame4, text=Tienda.P3.nombre + ": " +Tienda.P3.descripcion + " $" + str(Tienda.P3.precio))
         frame4.grid()
-        BW1.grid()
-        BW2.grid() 
-        BW3.grid() 
+        BP1.grid()
+        BP2.grid() 
+        BP3.grid() 
 
        
 
