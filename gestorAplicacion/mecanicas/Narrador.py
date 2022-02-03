@@ -6,7 +6,7 @@ from random import randint
 
 class combate():    
     
-    def __init__(self, pj, mob, window, narrativa, labelNar, labelPJ, labelMob):
+    def __init__(self, pj, mob, window, narrativa, labelNar, labelPJ, labelMob, a, b):
         self.window = window
         self.narrativa = narrativa
         self.labelNar = labelNar
@@ -15,7 +15,9 @@ class combate():
         self.pj = pj
         self.mob = mob
         self.objetivoPj = 10 + self.mob.nivel + self.pj.AC # - Armadura.getDefensa()
-        self.objetivoRival = 14 + self.pj.nivel + self.mob.AC
+        self.objetivoRival = 14 + self.pj.nivel + self.mob.AC        
+        self.a = a
+        self.b = b
 
     def botonera(self):
         hechizo1 = self.pj.hechizo_1(self.mob,self.pj, "consulta")
@@ -157,3 +159,6 @@ class combate():
         self.hechizo_2["state"] = "disabled"
         self.hechizo_3["state"] = "disabled" 
         self.labelNar.insert(tk.END,"\nBatalla terminada\n" + winner + " Gana!")
+        
+        self.a["state"] = "normal"
+        self.b["state"] = "normal"        
