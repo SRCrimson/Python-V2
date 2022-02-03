@@ -6,6 +6,7 @@ from tkinter import CENTER, LEFT, messagebox
 from App import App
 
 class bienvenida(tk.Tk):
+    numero = 2
     def __init__(self):
         super().__init__()
         self.geometry("1280x720")
@@ -42,13 +43,14 @@ class bienvenida(tk.Tk):
         p4Frame.pack_propagate(False)
         self.actualDeveloper = "john"
 
-        numero = 3
-        def imgAsoc(event,numero, num,photo_):
+        
+        def imgAsoc(event, num, photo_):
+            global numero
             photo_.config(image="")
-            if numero <=4:
-                numero += 1
+            if self.numero <=4:
+                self.numero += 1
             else:
-                numero = 1
+                self.numero = 1
 
             img = os.path.join(base_folder, 'photos/as'+str(num)+'.gif')
             imgPI = tk.PhotoImage(file=img)
@@ -72,7 +74,7 @@ class bienvenida(tk.Tk):
         photo_.grid(row=0, column=0)
         photo_.rowconfigure(0, weight=1)
         photo_.columnconfigure(0, weight=1)
-        p41Frame.bind('<Enter>', lambda event:imgAsoc(event,numero, numero,photo_))
+        p41Frame.bind('<Enter>', lambda event:imgAsoc(event,self.numero, photo_))
 
         descripcion = """Este relato contiene muchas elecciones: las hay sencillas, sensatas, temerarias... e incluso muy peligrosas.
 
@@ -192,7 +194,6 @@ class bienvenida(tk.Tk):
         menuBar.add_cascade(label = "Inicio", menu = fileMenu)
         self.config(menu = menuBar)
         
-
 
         def pageusuario(self):
             self.destroy()
