@@ -22,7 +22,6 @@ class frameInventario(tk.Frame):
 
 
 
-
         def ShowInvArmas():
             for item in Inventario.InvArmas:
                 print(item)

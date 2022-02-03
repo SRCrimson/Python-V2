@@ -7,13 +7,12 @@ from . Pocion   import Pocion
 from . Inventario import Inventario
 import tiendaPage
 
-
 def ayudaGood():
-    messagebox.showinfo(title='Ayuda',
+    messagebox.showinfo(title='Confirmacion',
     message = 'Enhorabuena! compra exitosa!',)
 
 def ayudaBad():
-    messagebox.showinfo(title='Ayuda',
+    messagebox.showinfo(title='Confirmacion',
     message = 'No tienes suficiente dinero :c',)
 
 class Tienda:

@@ -8,7 +8,6 @@ if __name__ == "__main__":
         app = bienvenida()
         app.mainloop()
 
-
 def correrbienvenida():
     if __name__ == "__main__":
         app = bienvenida()
