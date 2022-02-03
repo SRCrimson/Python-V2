@@ -16,4 +16,5 @@ class HojaPersonajePage (tk.Frame):
         invLabel2.grid(padx=20,pady=10)
         frame3= tk.Frame(framePersonaje, background="#CCE4CA",width=600,height=250)
         frame2.grid(padx=20, pady=10)
+        label3 = tk.Label(frame3)
         frame3.grid(padx=20, pady=10)
