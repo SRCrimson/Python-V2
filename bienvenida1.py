@@ -141,7 +141,6 @@ class bienvenida(tk.Tk):
         pjSantiago = "Nombre: Santiago\nApellidos: Rivera Mejia\nEdad: 21\nPregrado: Ciencias de la computación"
         pjBrayan = "Hoja de vida de Brayan"
 
-
         p5Frame = tk.Frame(p2Frame, background="#808080", width=400, height=200)
         p5Frame.grid(padx=20, pady=10)
         p5Frame.grid_propagate(0)

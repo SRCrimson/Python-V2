@@ -18,6 +18,7 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Calabozos en la Nacho")
+        self.resizable(width=False, height=False)
         #self.geometry("500x350")
         self.config(bg="black")
         self.__create_widgets()
