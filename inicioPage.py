@@ -112,7 +112,7 @@ class inicioPage(tk.Frame):
         tituloCriterios="Criterios"
         criterios=["Nombre","Correo","Contraseña"]
         tituloValores="Valor"
-        valores=[None,None,"dola"]
+        valores=["eider",None,"dola"]
         habilitado=[None,None,"2"]
         filewin = Toplevel(self)
         #entry = ttk.Entry(root, state=tk.DISABLED) habilitacion

@@ -2,8 +2,9 @@
 import tkinter as tk
 from tkinter import *
 from App import App
+import sqlite3
 
 if __name__ == "__main__":
-    lista=[]
-    app = App(lista)
+    conn = sqlite3.connect('usuariosBD.sqlite')
+    app = App()
     app.mainloop()
