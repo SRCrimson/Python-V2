@@ -15,7 +15,7 @@ class Player(NPC):     #serializable
 
 	min = 1
 	max = 20
-	clase = Clase
+	clase= Clase
 	
 	 
 	def __init__(self,nombre="Freud Baggins",HP=20,MP=3,AC=6,nivel=1,xp=0,clase= 1,edad=50,FUE=12,DES=12,CON=12,INT=12,SAB=12,CAR=12, dano = 4): #Jugador por defecto
@@ -45,7 +45,7 @@ class Player(NPC):     #serializable
 
 	def Jugador (self,nombre,edad,clase):
 		super().__init__(nombre, edad,  clase, 1)
-		clase = super().getClase()
+		self.clase= super().getClase()
 		self.AC = 8
 		self.HP = 20 + clase.getConstitucion() + self.getHp()
 		self.MP = 3 # EL MAGO DEBE TENER MÁS
