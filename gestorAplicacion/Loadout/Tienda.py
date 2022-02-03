@@ -1,15 +1,15 @@
 from pip      import main
-
+from tkinter import *
 
 from . Arma import Arma
 from . Armadura import Armadura
 from . Pocion   import Pocion
-
 from . Inventario import Inventario
 
 class Tienda:
     def __init__(self, wallet):
         self.wallet = wallet
+        
     W1 = Arma("Bisturi",   "De poco filo",       5, 25)
     W2 = Arma("Excalibur", "Espada legendaria", 10, 50)
     W3 = Arma("Ragnarok",  "World ender",       15, 100)
@@ -32,7 +32,7 @@ class Tienda:
 
 
     def comprarWarrior(self, nombre):
-        if   (nombre == '1') and (self.wallet >= Tienda.W1.precio): 
+        if (nombre == '1')  and (self.wallet >= Tienda.W1.precio): 
             Inventario.InvArmas.append(Tienda.W1)
             print(Inventario.InvArmas[0].nombre)
         elif (nombre == '2') and (self.wallet >= Tienda.W2.precio): 
