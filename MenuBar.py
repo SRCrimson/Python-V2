@@ -16,7 +16,7 @@ def ayuda():
 
 
 class MenuBar(tk.Menu):
-    def __init__(self, container,frameinicio,frameinv,frameCom,frameNarr,frametienda,framecrear,frameUsuarioR,frameIngre, combate, label, frame6, mob, labelMob):
+    def __init__(self, container,frameinicio,frameinv,frameCom,frameNarr,frametienda,framecrear,frameUsuarioR,frameIngre,framePersonaje, combate, label, frame6, mob, labelMob):
         
         super().__init__(container)
         #definir frames
@@ -29,6 +29,7 @@ class MenuBar(tk.Menu):
         self.framecrear=framecrear
         self.frameUsuarioR=frameUsuarioR
         self.frameIngre=frameIngre
+        self.framePersonaje=framePersonaje
         # setup the grid layout manager
         self.columnconfigure(0, weight=1)
         self.columnconfigure(0, weight=3)
@@ -55,6 +56,10 @@ class MenuBar(tk.Menu):
         menuProcesos.add_command(label="Narrador", command=self.funNarrador)
         menuProcesos.add_command(label="Tienda", command=self.funTienda)
         menuProcesos.add_command(label="Crear Personaje", command=self.funCrearpersonaje)
+        menuProcesos.add_command(label="Hoja Personaje", command=self.funPersonaje)
+        menuProcesos.add_separator()
+        menuProcesos.add_separator()
+        menuProcesos.add_command(label="Volver al juego", command=self.regresarInicio)
         menuayuda = tk.Menu(self, tearoff=False)
         self.add_cascade(label="Ayuda",menu=menuayuda)
         menuayuda.add_command(label="Ayuda", command=ayuda)
@@ -72,6 +77,7 @@ class MenuBar(tk.Menu):
         self.framecrear.grid_forget()
         self.frameUsuarioR.grid_forget()
         self.frameIngre.grid_forget()
+        self.framePersonaje.grid_forget()
     def funInventario(self):
         self.frameinicio.grid_forget()
         self.frameinv.grid()
@@ -81,6 +87,7 @@ class MenuBar(tk.Menu):
         self.framecrear.grid_forget()
         self.frameUsuarioR.grid_forget()
         self.frameIngre.grid_forget()
+        self.framePersonaje.grid_forget()
     def funCombate(self):
         self.frameinicio.grid_forget()
         self.frameinv.grid_forget()
@@ -92,7 +99,7 @@ class MenuBar(tk.Menu):
         self.frameCom.countdown(5,self.label, self.frame6, self.mob, self.labelMob)
         self.frameUsuarioR.grid_forget()
         self.frameIngre.grid_forget()
-        
+        self.framePersonaje.grid_forget()
         
 
     def funNarrador(self):
@@ -104,6 +111,7 @@ class MenuBar(tk.Menu):
         self.framecrear.grid_forget()
         self.frameUsuarioR.grid_forget()
         self.frameIngre.grid_forget()
+        self.framePersonaje.grid_forget()
     def funTienda(self):
         self.frameinicio.grid_forget()
         self.frameinv.grid_forget()
@@ -113,6 +121,7 @@ class MenuBar(tk.Menu):
         self.framecrear.grid_forget()
         self.frameUsuarioR.grid_forget()
         self.frameIngre.grid_forget()
+        self.framePersonaje.grid_forget()
     def funCrearpersonaje(self):
         self.frameinicio.grid_forget()
         self.frameinv.grid_forget()
@@ -122,6 +131,7 @@ class MenuBar(tk.Menu):
         self.framecrear.grid()
         self.frameUsuarioR.grid_forget()
         self.frameIngre.grid_forget()
+        self.framePersonaje.grid_forget()
     def funRegistrarse(self):
         self.frameinicio.grid_forget()
         self.frameinv.grid_forget()
@@ -131,6 +141,7 @@ class MenuBar(tk.Menu):
         self.framecrear.grid_forget()
         self.frameUsuarioR.grid()
         self.frameIngre.grid_forget()
+        self.framePersonaje.grid_forget()
     def funIngresar(self):
         self.frameinicio.grid_forget()
         self.frameinv.grid_forget()
@@ -140,3 +151,14 @@ class MenuBar(tk.Menu):
         self.framecrear.grid_forget()
         self.frameUsuarioR.grid_forget()
         self.frameIngre.grid()
+        self.framePersonaje.grid_forget()
+    def funPersonaje(self):
+        self.frameinicio.grid_forget()
+        self.frameinv.grid_forget()
+        self.frameCom.grid_forget()
+        self.frameNarr.grid_forget()
+        self.frametienda.grid_forget()
+        self.framecrear.grid_forget()
+        self.frameUsuarioR.grid_forget()
+        self.frameIngre.grid_forget()
+        self.framePersonaje.grid()

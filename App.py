@@ -10,7 +10,7 @@ from tiendaPage import tiendaPage
 from crearPersonajePage import crearPersonajePage
 from UsuarioRegistrarsePage import usuarioRegistrarsePage
 from UsuarioIngresarPage import usuarioIngresarPage
-
+from HojaPersonajePage import HojaPersonajePage
 
 ### CLASE APP ES LA VENTANA PRINCIPAL
 class App(tk.Tk):
@@ -18,7 +18,8 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Calabozos en la Nacho")
-
+        #self.geometry("500x350")
+        self.config(bg="black")
         self.__create_widgets()
 
     def __create_widgets(self):
@@ -32,6 +33,7 @@ class App(tk.Tk):
         framecrear=crearPersonajePage(self,"frame crear personaje")
         frameReg=usuarioRegistrarsePage(self,"frame usuario")
         frameIngresar=usuarioIngresarPage(self,"frame usuario")
+        framePersonaje=HojaPersonajePage(self,"hoja personaje")
         combate = frameCom.combate        
         label = frameCom.label
         frame6 = frameCom.frame6
@@ -39,5 +41,5 @@ class App(tk.Tk):
         labelMob = frameCom.labelMob  
         
         # create the menu
-        self.menubar = MenuBar(self,frameinicio,frameinv,frameCom,frameNarr,frametienda,framecrear,frameReg,frameIngresar, combate, label, frame6, mob, labelMob)
+        self.menubar = MenuBar(self,frameinicio,frameinv,frameCom,frameNarr,frametienda,framecrear,frameReg,frameIngresar,framePersonaje, combate, label, frame6, mob, labelMob)
         self.config(menu=self.menubar)
