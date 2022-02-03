@@ -7,7 +7,7 @@ from FieldFrame import FieldFrame
 import gestorAplicacion.mecanicas.Narrador as narrador # JM
 import gestorAplicacion.pjs.Player as player # JM
 import gestorAplicacion.pjs.Enemy as Enemy #JM
-
+import gestorAplicacion.mecanicas.iu as narrativa # JM
 class inicioPage(tk.Frame):
     pejota = None
     def __init__(self, container,labeltext):
@@ -23,6 +23,24 @@ class inicioPage(tk.Frame):
         frame3= tk.Frame(frameinicio, bg="#1C1C1C")
         frame3.grid(row=1, column=0, columnspan=2)
 
+        ## NARRATIVA JM
+        iu = narrativa.Iu()        
+        iu.escenario()
+        
+        def setEscena(seleccion):
+
+            iu.getEscena(seleccion)
+            labelNar.insert(END, "\n\n-------------------------------\n\n"+iu.narrativa)
+            option_a['text'] = iu.opcion_1_nar
+            option_a['command'] = lambda:setEscena(iu.opcion_1)            
+            option_b['text'] = iu.opcion_2_nar 
+            option_b['command'] = lambda:setEscena(iu.opcion_2)
+        
+        
+
+        #narramiento.escenario()
+        
+        ##
         
 
         ##
@@ -74,7 +92,7 @@ class inicioPage(tk.Frame):
         labelMob.pack(side=TOP)
         combate = narrador.combate(pj, mob, frame7, frame6, slabelNar, labelPJ, labelMob) # JM
         combate.botonera()
-
+        combate.setTurno()
         
         ##
 
@@ -91,8 +109,10 @@ class inicioPage(tk.Frame):
         #frame4= tk.Frame(frameinicio,width=100,height=100)
         #frame3.grid(padx=20, pady=10,row=1, column=0, columnspan=6,rowspan=7,sticky="nsew")
         #Label(frameinicio, text="Opcion",width=10,font=("Monaco",14),fg="white",bg="#1C1C1C").grid(padx=5, row=6 ,column=0)
-        Button(frameinicio, text="OPCIÓN A", width=70).grid(row=5, column=0,columnspan=2)
-        Button(frameinicio, text="OPCIÓN B", width=70).grid(row=6, column=0,columnspan=2)
+        option_a = Button(frameinicio, text="OPCIÓN A", width=70)
+        option_a.grid(row=5, column=0,columnspan=2)
+        option_b = Button(frameinicio, text="OPCIÓN B", width=70)
+        option_b.grid(row=6, column=0,columnspan=2)
         #Button(frameinicio, text="1",width=20).grid(row=6, column=1)
         #Button(frameinicio, text="2",width=20).grid(row=6, column=3)
 
@@ -101,12 +121,14 @@ class inicioPage(tk.Frame):
         #Button(frameinicio, text="Escapar",width=20).grid(row=7, column=2)
 
         #Button(frameinicio, text="Hoja Personaje",width=20).grid(row=5, column=2)
-        Button(frameinicio, text="save",width=20).grid(row=6, column=2)
-        Button(frameinicio, text="help",width=20).grid(row=7, column=2)
+        Button(frameinicio, text="Guardar",width=12).grid(row=0, column=2, sticky='e')
+        Button(frameinicio, text="Ayuda",width=12).grid(row=0, column=3)
 
         #BOTONES DE REGISTRO Y LOGIN
         #Button(frameinicio, text="Registrarse",width=20,command = self.funRegistrarse).grid(row=0, column=3)
         #Button(frameinicio, text="Ingresar",width=20,command=self.funIngresar).grid(row=1, column=3)
+
+        setEscena(0) # JM
 
     def funRegistrarse(self):
         tituloCriterios="Criterios"

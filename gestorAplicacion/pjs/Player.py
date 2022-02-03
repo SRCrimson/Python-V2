@@ -45,7 +45,7 @@ class Player(NPC):     #serializable
 
 	def Jugador (self,nombre,edad,clase):
 		super().__init__(nombre, edad,  clase, 1)
-		clase= super().getClase()
+		self.clase= super().getClase()
 		self.AC = 8
 		self.HP = 20 + clase.getConstitucion() + self.getHp()
 		self.MP = 3 # EL MAGO DEBE TENER MÁS

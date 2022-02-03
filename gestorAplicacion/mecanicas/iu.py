@@ -106,7 +106,11 @@ alertando así los guardas, iniciándose un combate feroz bajo la mortecina luz 
         self.opcion_2 = self.allEscenas[seleccion].opciones[3]
         self.opcion_1_nar = self.allEscenas[seleccion].opciones[0]
         self.opcion_2_nar = self.allEscenas[seleccion].opciones[2]
+        #return escena(self.allEscenas[seleccion].narrativa, self.allEscenas[seleccion].opciones[1], )
 
-iu = Iu()
-escenario = iu.escenario()
-iu.getEscena(0)
+
+
+
+#iu = Iu()
+#escenario = iu.escenario()
+#iu.getEscena(0)

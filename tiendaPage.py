@@ -5,8 +5,7 @@ import os
 import inicioPage
 class tiendaPage(tk.Frame):
     def __init__(self, container,labeltext, pj):
-        super().__init__(container)
-        
+        super().__init__(container)        
         frameinventario=tk.Frame(self,background="#1C1C1C",bd=0, relief="sunken")
         frameinventario.grid()
         frame2= tk.Frame(frameinventario, background="#1C1C1C",width=400,height=200)

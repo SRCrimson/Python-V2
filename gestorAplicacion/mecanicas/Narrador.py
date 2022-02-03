@@ -30,9 +30,9 @@ class combate():
         self.hechizo_2.grid(column=0,row=1, sticky='nesw')
         self.hechizo_3 = tk.Button(self.window,text=hechizo3.nombre +"("+str(hechizo3.costo)+")", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_3(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
         self.hechizo_3.grid(column=1,row=1, sticky='nesw')
-        self.hechizo_4 = tk.Button(self.window,text="Hoja de personaje", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_3(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
+        self.hechizo_4 = tk.Button(self.window,text="Hoja de personaje")
         self.hechizo_4.grid(column=3,row=0, sticky='nesw')
-        self.hechizo_5 = tk.Button(self.window,text="Escapar", command=lambda:[self.hechizo_1_nar(self.pj.hechizo_3(self.mob,self.pj, "")), self.turnoMob()], state="disabled")
+        self.hechizo_5 = tk.Button(self.window,text="Escapar", state="disabled")
         self.hechizo_5.grid(column=3,row=1, sticky='nesw')
 
         self.window.grid_columnconfigure(0, weight=1, uniform="fred")
