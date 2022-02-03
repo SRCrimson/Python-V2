@@ -48,7 +48,7 @@ class MenuBar(tk.Menu):
         menuArchivo = tk.Menu(self, tearoff=False)
         self.add_cascade(menu=menuArchivo,label='Archivo')
         menuArchivo.add_command(label="Aplicación", command=Aplicacion)
-        menuArchivo.add_command(label="Salir", command=self.regresarInicio)
+        menuArchivo.add_command(label="Salir")#, command=self.regresarInicio(self))
         menuProcesos= tk.Menu(self, tearoff=False)
         self.add_cascade(menu=menuProcesos, label='Procesos y Consultas')
         menuProcesos.add_command(label="Inventario",command=self.funInventario)
@@ -59,7 +59,7 @@ class MenuBar(tk.Menu):
         menuProcesos.add_command(label="Hoja Personaje", command=self.funPersonaje)
         menuProcesos.add_separator()
         menuProcesos.add_separator()
-        menuProcesos.add_command(label="Volver al juego", command=self.regresarInicio)
+        menuProcesos.add_command(label="Volver al juego", command=self.volverjuego)
         menuayuda = tk.Menu(self, tearoff=False)
         self.add_cascade(label="Ayuda",menu=menuayuda)
         menuayuda.add_command(label="Ayuda", command=ayuda)
@@ -67,8 +67,16 @@ class MenuBar(tk.Menu):
         self.add_cascade(label="Login",menu=menuLogin)
         menuLogin.add_command(label="Registarse", command=self.funRegistrarse)
         menuLogin.add_command(label="Ingresar", command=self.funIngresar)
-    
-    def regresarInicio(self):
+
+
+    '''def regresarInicio(self):
+        self.destroy()
+        if __name__ == "__main__":
+            app = bienvenida()
+            app.mainloop()
+            self.destroy()'''
+
+    def volverjuego(self):
         self.frameinicio.grid()
         self.frameinv.grid_forget()
         self.frameCom.grid_forget()

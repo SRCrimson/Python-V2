@@ -2,6 +2,8 @@ import os
 import tkinter as tk
 from tkinter import *
 import os
+from gestorAplicacion.Loadout.Inventario import Inventario
+
 class frameInventario(tk.Frame):
     def __init__(self, container,labeltext):
         super().__init__(container)
@@ -17,5 +19,19 @@ class frameInventario(tk.Frame):
         frame3= tk.Frame(frameinventario, background="#CCE4CA",width=600,height=250)
         frame2.grid(padx=20, pady=10)
         frame3.grid(padx=20, pady=10)
+
+
+
+
+        def ShowInvArmas():
+            for item in Inventario.InvArmas:
+                print(item)
+        def ShowInvArmaduras():
+            for item in Inventario.InvArmaduras:
+                print(item)
+        def ShowInvPociones():
+            for item in Inventario.InvPociones:
+                print(item)
+        
         
     

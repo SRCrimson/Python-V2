@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import *
 from gestorAplicacion.pjs.Player import Player
 from gestorAplicacion.Loadout.Tienda import Tienda
+
 Jugador = Player()  
 
 class tiendaPage(tk.Frame):
@@ -44,47 +45,35 @@ class tiendaPage(tk.Frame):
     def ShowArmasArcher(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BA1      = Button(frame4, text=Tienda.A1.nombre + ": " +Tienda.A1.descripcion + " $" + str(Tienda.A1.precio))
-        BA2      = Button(frame4, text=Tienda.A2.nombre + ": " +Tienda.A2.descripcion + " $" + str(Tienda.A2.precio))
-        BA3      = Button(frame4, text=Tienda.A3.nombre + ": " +Tienda.A3.descripcion + " $" + str(Tienda.A3.precio))
+        Button(frame4, text=Tienda.A1.nombre + ": " +Tienda.A1.descripcion + " $" + str(Tienda.A1.precio), command = lambda: Tienda.comprarArcher('1', Jugador.getWallet())).grid()
+        Button(frame4, text=Tienda.A2.nombre + ": " +Tienda.A2.descripcion + " $" + str(Tienda.A2.precio), command = lambda: Tienda.comprarArcher('2', Jugador.getWallet())).grid()
+        Button(frame4, text=Tienda.A3.nombre + ": " +Tienda.A3.descripcion + " $" + str(Tienda.A3.precio), command = lambda: Tienda.comprarArcher('3', Jugador.getWallet())).grid()
         frame4.grid()
-        BA1.grid()
-        BA2.grid() 
-        BA3.grid()
-       
+    
     def ShowArmasMage(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BM1      = Button(frame4, text=Tienda.M1.nombre + ": " +Tienda.M1.descripcion + " $" + str(Tienda.M1.precio))
-        BM2      = Button(frame4, text=Tienda.M2.nombre + ": " +Tienda.M2.descripcion + " $" + str(Tienda.M2.precio))
-        BM3      = Button(frame4, text=Tienda.M3.nombre + ": " +Tienda.M3.descripcion + " $" + str(Tienda.M3.precio))
+        Button(frame4, text=Tienda.M1.nombre + ": " +Tienda.M1.descripcion + " $" + str(Tienda.M1.precio), command = lambda: Tienda.comprarMage('1', Jugador.getWallet())).grid()
+        Button(frame4, text=Tienda.M2.nombre + ": " +Tienda.M2.descripcion + " $" + str(Tienda.M2.precio), command = lambda: Tienda.comprarMage('2', Jugador.getWallet())).grid()
+        Button(frame4, text=Tienda.M3.nombre + ": " +Tienda.M3.descripcion + " $" + str(Tienda.M3.precio), command = lambda: Tienda.comprarMage('3', Jugador.getWallet())).grid()
         frame4.grid()
-        BM1.grid()
-        BM2.grid() 
-        BM3.grid()
-
+     
     def ShowArmaduras(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BAR1      = Button(frame4, text=Tienda.Armor1.nombre + ": " +Tienda.Armor1.descripcion + " $" + str(Tienda.Armor1.precio))
-        BAR2      = Button(frame4, text=Tienda.Armor2.nombre + ": " +Tienda.Armor2.descripcion + " $" + str(Tienda.Armor2.precio))
-        BAR3      = Button(frame4, text=Tienda.Armor3.nombre + ": " +Tienda.Armor3.descripcion + " $" + str(Tienda.Armor3.precio))
+        Button(frame4, text=Tienda.Armor1.nombre + ": " +Tienda.Armor1.descripcion + " $" + str(Tienda.Armor1.precio), command = lambda: Tienda.comprarArmor('1', Jugador.getWallet())).grid()
+        Button(frame4, text=Tienda.Armor2.nombre + ": " +Tienda.Armor2.descripcion + " $" + str(Tienda.Armor2.precio), command = lambda: Tienda.comprarArmor('2', Jugador.getWallet())).grid()
+        Button(frame4, text=Tienda.Armor3.nombre + ": " +Tienda.Armor3.descripcion + " $" + str(Tienda.Armor3.precio), command = lambda: Tienda.comprarArmor('3', Jugador.getWallet())).grid()
         frame4.grid()
-        BAR1.grid()
-        BAR2.grid() 
-        BAR3.grid()
    
     def ShowPociones(self):
         filewin  = Toplevel(self)
         frame4   = tk.Frame(filewin, background="#1C1C1C",width=600,height=250)
-        BP1      = Button(frame4, text=Tienda.P1.nombre + ": " +Tienda.P1.descripcion + " $" + str(Tienda.P1.precio))
-        BP2      = Button(frame4, text=Tienda.P2.nombre + ": " +Tienda.P2.descripcion + " $" + str(Tienda.P2.precio))
-        BP3      = Button(frame4, text=Tienda.P3.nombre + ": " +Tienda.P3.descripcion + " $" + str(Tienda.P3.precio))
-        frame4.grid()
-        BP1.grid()
-        BP2.grid() 
-        BP3.grid() 
+        Button(frame4, text=Tienda.P1.nombre + ": " +Tienda.P1.descripcion + " $" + str(Tienda.P1.precio), command = lambda: Tienda.comprarPotion('1', Jugador.getWallet())).grid()
+        Button(frame4, text=Tienda.P2.nombre + ": " +Tienda.P2.descripcion + " $" + str(Tienda.P2.precio), command = lambda: Tienda.comprarPotion('2', Jugador.getWallet())).grid()
+        Button(frame4, text=Tienda.P3.nombre + ": " +Tienda.P3.descripcion + " $" + str(Tienda.P3.precio), command = lambda: Tienda.comprarPotion('3', Jugador.getWallet())).grid()
+        frame4.grid()    
 
-       
+    
 
     
