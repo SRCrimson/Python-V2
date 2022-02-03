@@ -1,17 +1,17 @@
 import tkinter as tk
 import os
 from gestorAplicacion.pjs.Player import Player
-import matplotlib.font_manager as fm
+#import matplotlib.font_manager as fm
 
 class NuevoPj():
 
     def __init__(self, crear_personaje):
         rootDir = os.getcwd ()
         path= str (rootDir) + "\game_over\game_over.ttf"
-        font_files = fm.findSystemFonts (fontpaths=path)
-        font_list = fm.createFontList (font_files)
-        fm.fontManager.ttflist.extend (font_list)
-        fm.rcParams['font.family'] = 'Game over'
+        #font_files = fm.findSystemFonts (fontpaths=path)
+        #font_list = fm.createFontList (font_files)
+        ##fm.fontManager.ttflist.extend (font_list)
+        #fm.rcParams['font.family'] = 'Game over'
 
         self.crear_personaje = crear_personaje
         self.crear_personaje.geometry("1080x600")
